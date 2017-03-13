@@ -25,10 +25,27 @@
         </md-card-title>
       </md-card>
         </div>
+         <div layout="row">
+             <md-card flex>
+        <md-card-title>
+          <md-card-title-text>
+              <div layout="row">
+                 <div flex>
+                     <span>list will update every 10 seconds</span>
+                 </div>  
+                 <div flex>
+                     <span style="float:right">{{totalHeadlines}} Headlines</span>
+                 </div>  
+              </div>
+          </md-card-title-text>
+        </md-card-title>
+      </md-card>
+        </div>
         <div layout="row"  ng-repeat="card in cards" >
             <md-card flex>
         <md-card-title>
           <md-card-title-text>
+              <span class="md-headline" style="color:orange">{{$index+1}}</span>
             <span class="md-headline" ng-bind-html="card.Headline"></span>
           </md-card-title-text>
         </md-card-title>

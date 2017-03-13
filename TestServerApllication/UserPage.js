@@ -2,6 +2,7 @@
     .controller("AppCtrl", function ($scope, $http, $sce, $timeout, $interval, $mdDialog) {
         $scope.cards = [];
         $scope.loading = true;
+        $scope.totalHeadlines = 0;
         $scope.showModal = function (card) {
             $mdDialog.show({
                 controller: DialogController,
@@ -43,6 +44,8 @@
                 method: 'Post',
                 url: '/api/News/selectAll'
             }).then(function successCallback(response) {
+
+                $scope.totalHeadlines = response.data.length;
                 $scope.searchAndPush(response.data);
                 $timeout(function () {
                     $scope.loading = false;
